@@ -1,0 +1,26 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model user_profiles {
+  user_id String @id @db.Uuid
+  goal String @db.VarChar(25)
+  experience String @db.VarChar(25)
+  days_per_week Int
+  session_length Int
+  equipment String @db.VarChar(25)
+  injuries String?
+  preferred_split String @db.VarChar(25)
+  updated_at DateTime @default(now()) @db.Timestamp(6)
+}

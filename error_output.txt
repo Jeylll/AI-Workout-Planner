@@ -1,0 +1,1 @@
+{"error":"Failed to save profile","details":"\nInvalid `prisma.user_profiles.upsert()` invocation in\nC:\\Code Languages\\React\\ai-gym-planner\\server\\src\\routes\\profile.ts:35:32\n\n  32   return res.status(400).json({ error: \"Missing required fields\" });\n  33 }\n  34 \n→ 35 await prisma.user_profiles.upsert(\n"}
