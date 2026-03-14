@@ -13,6 +13,16 @@ datasource db {
   provider = "postgresql"
 }
 
+model training_plans {
+  id String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  user_id String @db.Uuid
+  plan_json Json
+  plan_text String
+  version Int @default(1)
+  created_at DateTime @default(now()) @db.Timestamp(6)
+  @@index([user_id], map: "index_training_plans_user_id_idx")
+}
+
 model user_profiles {
   user_id String @id @db.Uuid
   goal String @db.VarChar(25)

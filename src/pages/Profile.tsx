@@ -1,9 +1,10 @@
 import { Navigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import { Button } from "../components/ui/Button";
+import { Card } from "../components/ui/Card";
 
 export default function Profile() {
-    const { user, isLoading } = useAuth();
-    const plan = false;
+    const { user, isLoading, plan } = useAuth();
 
     if (!user && !isLoading) {
         return <Navigate to="/auth/sign-in" replace />
@@ -13,5 +14,7 @@ export default function Profile() {
         return <Navigate to="/onboarding" replace />
     }
 
-    return <div>Welcome to the Profile Page</div>
+    return (
+        <div></div>
+    )
 }
