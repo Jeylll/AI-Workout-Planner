@@ -25,7 +25,7 @@ export interface PlanOverview {
 }
 
 export interface Exercise {
-  names: string;
+  name: string;
   sets: number;
   reps: string;
   rest: string;
