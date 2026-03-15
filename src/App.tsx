@@ -19,8 +19,8 @@ function App() {
               <main>
                 <Routes>
                   <Route index element={<Home />} />
-                  <Route path="/onboarding" element={<Onboarding />} />
                   <Route path="/profile" element={<Profile />} />
+                  <Route path="/onboarding" element={<Onboarding />} />
                   <Route path="/auth/:pathname" element={<Auth />} />
                   <Route path="/account/:pathname" element={<Account />} />
                 </Routes>

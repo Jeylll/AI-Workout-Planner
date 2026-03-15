@@ -28,11 +28,14 @@ export default function NavBar() {
                         </> 
                     ) : (
                         <>
-                            <Link to="/auth/sign-in">
+                            <Link to="/" className="mr-4">
+                                <Button variant="ghost" size="sm">Home</Button>
+                            </Link>
+                            <Link to="/auth/sign-in" className="mx-1">
                                 <Button variant="ghost" size="sm">Sign In</Button>
                             </Link>
                             <Link to="/auth/sign-up">
-                                <Button>Sign Up</Button>
+                                <Button variant="primary" size="sm">Sign Up</Button>
                             </Link>
                         </>
                     )

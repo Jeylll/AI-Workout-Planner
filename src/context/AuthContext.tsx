@@ -43,12 +43,12 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
 
     useEffect(() => {
         if (!isLoading) {
-        if (neonUser?.id) {
-            refreshData();
-        } else {
-            setPlan(null);
-        }
-        setIsLoading(false);
+            if (neonUser?.id) {
+                refreshData();
+            } else {
+                setPlan(null);
+            }
+            setIsLoading(false);
         }
     }, [neonUser?.id, isLoading]);
 
@@ -56,7 +56,7 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
         if (!neonUser || isRefreshingRef.current) return;
 
         isRefreshingRef.current = true;
-
+        
         try {
         // Fetch profile
         // const profileData =

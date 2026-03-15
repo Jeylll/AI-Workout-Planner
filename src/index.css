@@ -1,8 +1,9 @@
+@import "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap";
 @import "tailwindcss";
 @import "@neondatabase/neon-js/ui/tailwind";
 
 @theme {
-  --font-sans: "Geist", system-ui, sans-serif;
+  --font-sans: "Space Grotesk", "Geist", system-ui, sans-serif;
 
   --color-background: #0a0a0a;
   --color-foreground: #fafafa;
@@ -15,6 +16,7 @@
 
 @layer base {
   html {
+    scroll-behavior: smooth;
     font-family: var(--font-sans);
     background-color: var(--color-background);
     color: var(--color-foreground);
@@ -30,5 +32,112 @@
   [data-slot="skeleton"],
   .animate-pulse {
     background-color: var(--color-border) !important;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(120deg, #eaff9e 0%, var(--color-accent) 45%, #68e544 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .feature-card {
+    border-color: color-mix(in srgb, var(--color-border) 70%, transparent);
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    will-change: transform;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-6px);
+    border-color: color-mix(in srgb, var(--color-accent) 60%, transparent);
+    box-shadow: 0 24px 60px -32px rgba(163, 230, 53, 0.6);
+  }
+
+  .features-grid > * {
+    animation: fade-up 0.6s ease-out both;
+  }
+
+  .features-grid > *:nth-child(1) {
+    animation-delay: 0.05s;
+  }
+
+  .features-grid > *:nth-child(2) {
+    animation-delay: 0.15s;
+  }
+
+  .features-grid > *:nth-child(3) {
+    animation-delay: 0.25s;
+  }
+
+  .features-grid > *:nth-child(4) {
+    animation-delay: 0.35s;
+  }
+
+  .animate-fade-up {
+    animation: fade-up 0.7s ease-out both;
+  }
+
+  .animate-fade-up-delay-1 {
+    animation-delay: 0.12s;
+  }
+
+  .animate-fade-up-delay-2 {
+    animation-delay: 0.24s;
+  }
+
+  .animate-fade-up-delay-3 {
+    animation-delay: 0.36s;
+  }
+
+  .animate-fade-up-delay-4 {
+    animation-delay: 0.48s;
+  }
+
+  .animate-float-slow {
+    animation: float-slow 12s ease-in-out infinite;
+  }
+
+  .animate-float-slower {
+    animation: float-slow 16s ease-in-out infinite;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-18px) scale(1.03);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up,
+  .animate-fade-up-delay-1,
+  .animate-fade-up-delay-2,
+  .animate-fade-up-delay-3,
+  .animate-fade-up-delay-4,
+  .features-grid > *,
+  .animate-float-slow,
+  .animate-float-slower {
+    animation: none !important;
+  }
+
+  .feature-card {
+    transition: none;
   }
 }
